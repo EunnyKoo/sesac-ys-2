@@ -6,13 +6,71 @@
     <title>html 태그 수업 2</title>
 </head>
 <body>
-    <img src="./KIKI.jpg" alt="" />
+    <img src="./KIKI.jpg" alt="마녀배달부 키키 사진" title="키키" width="500" height="300"/>
+    <hr />
     <!-- 현재 위치: C:\Users\SBA_USER\Desktop\github\sesac-ys-2\htmlCssJs
         .은 현재 위치를 의미함
         ./KIKI.jpg: 현재 위치에 있는 파일을 불러오겠다.
 
         ../ : 은 이전 경로를 의미함, 즉 한 단계 앞 위치로 이동!
         ../htmlCssJs : 있는 위치죠!
+
+        alt는 이미지 파일이 제대로 불러와지지 않았을 때 
+        글로 무슨 이미지인지 설명해주기 때문에 사용하길 권장함
+
+        title은 사진에 커서를 오래 두면 이름이 나옴
     -->
+
+    <a href="http://www.naver.com" target="_self">Anchor의 약자의 a태그 1</a> <br />
+    <a href="./01_html.html" target="_blank">Anchor의 약자의 a태그 2</a>
+    <hr />
+    <!--target 속성: 기존창에서 링크 바뀌는 건 self
+        새로운 창을 열어서 이동시키는 건 blank-->
+    
+    <h1>회원가입</h1>    
+    <form action="">
+        이름: <input type="text" name="name" /> <br />
+        이메일: <input type="text" name="email" /> <br />
+        비밀번호: <input type="password" name="pw" /> <br /> 
+        비밀번호 확인: <input type="password" name="pwConfirm" /> <br />
+
+        <input type="button" value="확인" /> 
+        <button>제출</button> <br />
+        
+        취미를 선택하세요:
+        <input type="checkbox" name="hobby" value="soccer" />축구
+        <input type="checkbox" name="hobby" value="baseball" />야구
+        <input type="checkbox" name="hobby" value="basketball" />농구 <br />
+
+        성별을 선택하세요:
+        <input type="radio" name="gender" value="female">여성
+        <input type="radio" name="gender" value="male">남성 <br />
+
+        15세 이상인가요?
+        <input type="radio" name="age_15" value="yes">네
+        <input type="radio" name="age_15" value="no">아니요 <br />
+
+        생년월일: <input type="date" name="birth"> <br />
+        생년월일: <input type="datetime-local" name="birthday"> <br />
+        색: <input type="color" name="color"> <br />
+
+        range: <input type="range" id="a" name="ages" min="0" max="10" step="2"> <br />
+        file: <input type="file" name="file"> <br />
+
+        <select name="option">
+            <optgroup label="옵션 1~2">
+                <option value="opt1">옵션1</option>
+                <option value="opt2">옵션2</option>
+            </optgroup>
+            <optgroup label="옵션 3~5">
+                <option value="opt3">옵션3</option>
+                <option value="opt4">옵션4</option>
+                <option value="opt5">옵션5</option>
+            </optgroup>
+        </select>
+    </form>    
+    <!--사용자에게 값을 입력받는 form, input 태그
+        form태그는 input을 한꺼번에 데이터를 백엔드로 넘길 때 사용함-->
+
 </body>
 </html>
