@@ -39,3 +39,50 @@ a:visited{
 .fruits *:not(span){
     background-color: wheat;
 }
+
+/* ::before */
+div.before-el::before {
+    content: "앞!";
+}
+
+/* ::after */
+div.after-el::after {
+    content: "hot";
+    font-size: 12px;
+    color: white;
+    background-color: red;
+    border-radius: 20%;
+}
+
+div.box::before{
+    content: "택시";
+    font-size: 12px;
+    color: white;
+    background-color: red;
+    border-radius: 20%;
+}
+
+div.box::after{
+    content: "빨리";
+    font-size: 12px;
+    color: white;
+    background-color: navy;
+    border-radius: 20%;
+}
+
+/* 속성선택자 */
+input[name=name]{
+    background-color: blueviolet !important;
+}
+
+input:disabled{
+ background-color: red;   
+}
+
+input[placeholder=이름]{
+    background-color: orange;
+}
+
+input:not([placeholder]){
+    background-color: blue;
+}
