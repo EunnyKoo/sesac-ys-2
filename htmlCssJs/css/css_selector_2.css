@@ -1,0 +1,41 @@
+.div-hover:hover{
+    background-color: yellowgreen;
+}
+.div-active:active{
+    background-color: pink;
+    color: red;
+}
+.input-focus:focus{
+    background-color: aquamarine;
+}
+a:visited{
+    color: green;
+}
+
+/* fruits의 first-child가 span일 경우에 바꿔라 */
+/* 즉 span을 div로 바꾸면 아무 스타일 변화 없음 */
+.fruits span:first-child{
+    color: red;
+}
+
+.fruits h3:last-child{
+    color: red;
+}
+
+.fruits div:nth-child(3){
+    color: orange;
+}
+
+.fruits2 span:nth-child(2n+1){
+    color: tomato;
+}
+
+/* span에서 watermelon이 아닌 것 */
+.fruits2 span:not(.watermelon){
+    background-color: thistle;
+}
+
+/* 전체에서 span이 아닌 것 */
+.fruits *:not(span){
+    background-color: wheat;
+}
