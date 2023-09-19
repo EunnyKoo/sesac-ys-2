@@ -1,0 +1,32 @@
+.img-skew:active {
+    transform: skew(20deg, 20deg);
+}
+
+.img-rotate:active {
+    transform: rotateY(30deg);
+}
+
+.img-scale:active {
+    transform: scale(1.5);
+}
+
+.img-translate:active {
+    transform: translate(30px, 30px);
+}
+
+.img-transform:active {
+    width: 500px;
+    top: 100px;
+    transform: perspective(150px) rotateY(30deg);
+    transition: transform 2s linear 1s;
+}
+
+.img-width:active {
+    width: 500px;
+    transition: 2s;
+}
+
+.div-transition:hover {
+    transform: scale(3);
+    transition: transform 1s linear 0.5s;
+}
