@@ -1,0 +1,96 @@
+/* div {
+    display: block;
+} */
+
+
+
+/* inline : width, height, margin(top, bottom) 무용지물 */
+/* inline-block : inline과 block의 특징을 합쳐놓음 (inline: content의 크기만큼만 공간을 차지 / block : width, height, margin 정상 작동 */
+.d-inline-block {
+    display: inline-block;
+    padding: 20px; 
+}
+
+/* flex: 자식 요소(하위 요소 아님 주의)를 inline-block으로 만듦*/
+.container {
+    display: flex;
+    height: 500px;
+    flex-direction: column-reverse;
+}
+
+.container-2 {
+    /*flex-wrap, justify-content*/
+    display: flex;
+    background-color: blueviolet;
+    height: 400px;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: end;
+}
+
+.container-3 {
+    /*flex-wrap, justify-content*/
+    display: flex;
+    background-color: blueviolet;
+    height: 400px;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: end;
+    align-content: center;
+    margin-top: 20px;
+}
+
+.container0 { 
+    background-color: cadetblue;
+    display: flex;
+    height: 500px;
+    width: 500px;
+    margin: 5px; 
+}
+.container1 { 
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 500px;
+    width: 500px;
+    margin: 5px; 
+}
+.container-4 { 
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    height: 500px;
+    width: 500px;
+}
+
+.container-5 { 
+    background-color: cadetblue;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 500px;
+    width: 500px;
+}
+
+.container-6 { 
+    background-color: cadetblue;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 500px;
+    width: 500px;
+}
+
+.box {
+    background-color: black; 
+    width: 100px; 
+    height: 100px;
+    margin: 5px; 
+}
