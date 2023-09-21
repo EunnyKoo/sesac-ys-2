@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //alert("hello1");
+    </script>
+</head>
+<body>
+    <script>
+        //콘솔에 출력을 하겠다.
+        //console.log("hello");
+
+        //다른 방식! 
+        //alert("hello2");
+
+        //키워드(var / let / const) 변수이름 = 값;
+        var name = "eun"; //선언과 할당을 동시에 한 문법
+        var name2;  //변수의 선언
+        name2 = "eun"; //할당
+
+        //var : 재선언 가능, 재할당 가능
+        var name; //name이라는 변수가 재선언됨
+        name = "koo";
+        name = "eunkoo"; //재할당
+
+        //let: 재선언 불가능, 재할당 가능
+        let addr = "seoul";
+        addr = "busan";
+
+        //const: 재선언 불가능, 재할당 불가능
+        const age = "28";
+        
+        console.log(name, name2, addr, age);
+        console.log(name2 + " hello");
+        console.log(name2 , "hello");
+        console.log(`hello ${addr} there`);
+
+        //배열: (비슷한 특징을 가진 값들을)하나의 변수에 여러개의 값을 담고싶을 때 사용
+        //typescript
+        let fruits = ["사과","레몬","체리",5]; //js에서는 다른 자료형 넣어도 상관은 없으나 안하는게 나음
+        console.log(fruits);
+        //인덱싱: 배열의 원소에 접근할 때 사용
+        //인덱싱 문법: 변수이름[인덱스]
+        console.log(fruits[2]);
+
+        let cat = {
+            //key: value 형태로 작성
+            name: '뽀또',
+            age: 1,
+            isCute: true,
+            mew: function(){
+                return '냐옹';
+            }
+        };
+        console.log(cat.name);
+        console.log(cat.isCute);
+        console.log(cat.mew());
+
+        let eun = {
+            name: "구은현",
+            age: 28,
+            interest: ["영화", "스페인", "주술회전"],
+            wannabe: function(){
+                return "developer";
+            }
+        }
+        console.log(eun.name);
+        console.log(eun.age);
+        console.log(eun.interest);
+        console.log(eun.wannabe());
+
+        //자료형을 알려주는 typeof: 해당 자료형이 어떤 것인지 알려줌!
+        console.log(typeof '문자');
+
+        //성적 구하는 프로그램 만들기
+        //let mathScore = Number(prompt("수학점수"));
+        //let engScore = Number(prompt("영어점수"));
+        //console.log("평균점수:"+(mathScore+engScore)/2);
+
+        //연산자
+        //대입연산자 = 
+        let num1 = 5;
+        let num2 = num1;
+
+        //비교연산자 ==, ===
+        "80" == 80;  //true
+        "80" === 80; //false
+
+        console.log(2**5); //2의 5승 출력
+
+        let undef;
+        console.log("!undef:"+!undef); //아무값도 지정하지 않으면 true 나옴 
+        
+        //자기 자신에 들어있던 값을 활용하여, 다시 자신에게 할당
+        let no = 5;
+        no = no + 1;
+        no += 1;
+        console.log(no);
+
+        //증감연산자
+        let no2 = 5;
+        console.log(no2++);
+        console.log(no2);
+        console.log(++no2);
+        
+        //함수 만드는 방법 세 가지! 
+        //명시적 함수 선언
+        funEx1();  //명시적 함수는 선언되기 전에 호출 가능! 
+        function funEx1(){
+            console.log("hello1");
+        } //호이스팅
+        funEx1();
+
+        //함수 표현식으로 선언(선언되기 전에 호출하면 오류 남)
+        //funEx2(); : 오류남
+        const funEx2 = function(){
+            console.log("hello2");
+        }
+        funEx2();
+
+        const funEx3 = () => {
+            console.log("hello3");
+        }
+        funEx3();
+
+        //매개변수 여부, 반환값 여부
+        //매개변수 X, 반환값 X
+        function fun1(){
+            console.log("fun1");
+            //return X
+        }
+        //매개변수 O, 반환값 X
+        function fun2(num){
+            console.log(num);
+            //return X
+        }
+        //매개변수: 함수 외부에서 함수 내부로 값을 전달하고 싶을 때
+        let num = 5;
+        fun2(num);
+
+        //반환 값: 함수 내부의 값을 함수 외부로 전달하고 싶을 때 
+        //매개변수 X, 반환값 O
+        function fun3(){
+            console.log("fun3");
+            return "hello";
+        }
+        let hello = fun3(); 
+        console.log(hello);
+        
+        //매개변수 O, 반환값 O
+        function fun4(num1, num2){
+            console.log("fun4");
+            return num1 + num2;
+        }
+        console.log(fun4(2,3));
+
+
+        // function multify(inputA, inputB){
+        //     inputA = Number(prompt("숫자1 입력: "));
+        //     inputB = Number(prompt("숫자2 입력: "));
+        //     return inputA * inputB;
+        // } 
+        
+
+        const square = function(inputC){
+            console.log(inputC**2);
+        }
+
+        let inputC = 2;
+        console.log(inputC);
+    </script>   
+</body>
+</html>
