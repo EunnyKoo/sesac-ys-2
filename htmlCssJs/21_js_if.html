@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS IF</title>
+</head>
+<body>
+    <script>
+        number = 4;
+        switch(number){
+            case 1 : console.log("3아님"); break;
+            case 2 : console.log("3이랑 가까워짐"); break;
+            case 3 : console.log("정답 333333"); break;
+            default : console.log("모르겠슴ㅜㅜ"); break;
+        }
+
+        //삼항연산자: 조건 ? 참일 때 실행할 코드 : 거짓일 때 실행할 코드
+        let name = "eun";
+        name == "eun" ? console.log("eun입니다") : console.log("누구세요");
+
+        let msg = name == "eun" ? "eun입니다" : "누구세요";
+        console.log(msg);
+
+        let now = new Date().getHours();
+        console.log(now);
+        if (now >= 12) {
+            console.log("오후입니다");
+        } else {
+            console.log("오전입니다");
+        }
+    </script>
+</body>
+</html>
