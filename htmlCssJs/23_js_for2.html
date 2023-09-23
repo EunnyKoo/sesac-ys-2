@@ -110,6 +110,35 @@
             console.log(sum3);
         });
 
+        //.pop()
+        console.log(numbers);
+        numbers.pop();
+        console.log(numbers);
+
+        numbers.shift();
+        console.log(numbers);
+
+        numbers.unshift(10);
+        console.log(numbers);
+
+        console.log(numbers.includes(1)); //true, false로 콘솔에 찍힘
+        console.log(numbers.indexOf(1)); //1이라는 값이 없기 때문에 -1이 반환됨
+        console.log(numbers.indexOf(5)); //5가 index(4)에 위치하고 있기 때문에 4라고 반환됨
+
+        //[1,2,3].join => "123"
+        console.log(numbers.join(""));
+
+        console.log(["a","p","p","l","e"].join(",")); //apple 출력
+
+        let str = "Happy day~! ";
+        console.log("length", str.length);
+        console.log("replace", str.replace('~', "!"));
+
+        
+        console.log('hello'.split("")); //['h', 'e', 'l', 'l', 'o'] 출력
+        console.log('hello'.split("").reverse()); // ['o', 'l', 'l', 'e', 'h'] 출력
+        console.log('hello'.split("").reverse().join("")); //olleh 출력
+
     </script>
 </body>
 </html>

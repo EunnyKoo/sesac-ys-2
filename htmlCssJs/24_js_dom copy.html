@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 5;
+        let num2 = num;
+        num2 += 5;
+        console.log(num, num2); //5 10 찍힘(새로운 공간 만듦)
+
+        let arr = [1,2,3,4,5];
+        let arr2 = arr;
+        arr2.reverse();
+        console.log(arr, arr2); //[5,4,3,2,1] 두 개 찍힘(배열, dictionary 같은 애들은 원래 값의 주소값을 전달)
+
+        var arr3 = [1,2,3,4];
+        var arr4 = arr3.slice();
+
+        arr4.reverse();
+        console.log(arr3, arr4); //[1,2,3,4] [4,3,2,1] 출력됨
+
+        let date = new Date();
+        console.log(date.getFullYear());
+        console.log(date.getMonth()+1);
+        console.log(date.getTime());  //밀리초
+
+        let expired = new Date("2023-09-22").getTime();
+        let today = new Date().getTime();
+        if(expired < today){
+            console.log("만료일이 지났어요ㅠ");
+        }else{
+            console.log("아직 사용할 수 있어요");
+        }
+    </script>
+</body>
+</html>

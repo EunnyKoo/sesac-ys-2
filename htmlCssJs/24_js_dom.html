@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="box">hello</div>
+    <div id="container" class="box item">hello</div>
+    <span>hello span</span> <br />
+    <input type="text" name="email">
+
+    <div id="box2">
+        <b>hello box2</b>
+    </div>
+
+    <script>
+        let elById = document.getElementById("box");
+        console.log(elById);
+
+        let elByClass = document.getElementsByClassName("box");
+        console.log(elByClass);
+        console.log(elByClass[0]);
+        console.log(elByClass[1]);
+
+        let elByTag = document.getElementsByTagName("span");
+        console.log(elByTag[0]);
+
+        let elByName = document.getElementsByName("email");
+        console.log(elByName[0]);
+
+        ///선택자를 이용하여 요소를 선택
+        let elBySelector = document.querySelector(".box"); 
+        let elBySelectorAll = document.querySelectorAll(".box");
+        console.log(elBySelector); 
+        console.log(elBySelectorAll); 
+
+        let elById2 = document.getElementById("box2");
+        //let elById2 = document.querySelector("#box2");
+
+        console.log(elById2.innerText); //hello box2 출력됨  text only
+        console.log(elById2.innerHTML); // <b>hello box2</b> 태그까지 같이 출력됨
+
+        elById2.innerText = "hello koo"; //뷰페이지에 hello koo로 바뀜
+        elById2.innerHTML = "hello <b>koo</b>"; //볼드체 적용되서 hello koo로 바뀜
+    </script>
+</body>
+</html>
