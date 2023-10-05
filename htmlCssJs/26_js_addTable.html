@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 만들기 실습</title>
+</head>
+<style>
+    table {
+        border-style: solid;
+    }
+</style>
+<body>
+    <h5>방명록입니다.</h5>
+    <form>
+       <input type="hidden" id="number">
+        작성자: <input type="text" id="name"> <br />
+        내용: <input type="text" id="content"> <br /> <br />
+        <input type="hidden" id="date">
+        <button type="button" onclick="addTable()">확인</button> <br /> <br />
+    </form>
+
+    <table id="guestBookTable">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table> 
+
+    <script>
+        function addTable(){
+            const name = document.getElementById("name").value;
+            const content = document.getElementById("content").value;
+            const date = new Date().toLocaleDateString("ko", {
+                                                        year: "numeric",
+                                                        month: "short",
+                                                        day: "numeric",
+                                                        });
+
+            const table = document.getElementById("guestBookTable");
+
+            const newRow = table.insertRow(1); 
+
+            const cell1 = newRow.insertCell(0); 
+            const cell2 = newRow.insertCell(1); 
+            const cell3 = newRow.insertCell(2);
+            const cell4 = newRow.insertCell(3); 
+
+            cell1.innerHTML = table.rows.length - 1; 
+            cell2.innerHTML = name;
+            cell3.innerHTML = content;
+            cell4.innerHTML = date; 
+        }
+    </script>
+</body>
+</html>

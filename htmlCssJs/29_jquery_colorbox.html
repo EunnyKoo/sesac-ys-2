@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: 600px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box red"> 
+            <button type="button" id="rainbow" onclick="rainbow()" style="background-color: red; width: 100px; height: 100px;"></button>
+        </div>
+    </div>
+
+    <script>
+         function rainbow() {
+            if ($("#rainbow").css("background-color") == "rgb(255, 0, 0)") {
+                $("#rainbow").css("background-color", "orange");
+            } else if ($("#rainbow").css("background-color") == "rgb(255, 165, 0)") {
+                $("#rainbow").css("background-color", "yellow");
+            } else if ($("#rainbow").css("background-color") == "rgb(255, 255, 0)") {
+                $("#rainbow").css("background-color", "green");
+            } else if ($("#rainbow").css("background-color") == "rgb(0, 128, 0)") {
+                $("#rainbow").css("background-color", "blue");
+            } else if ($("#rainbow").css("background-color") == "rgb(0, 0, 255)") {
+                $("#rainbow").css("background-color", "navy");
+            } else {
+                $("#rainbow").css("background-color", "purple");
+            }
+        }
+    </script>
+</body>
+</html>

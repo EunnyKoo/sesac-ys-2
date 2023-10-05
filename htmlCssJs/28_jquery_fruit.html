@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .box{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <img src="" id="fruitImg" width="500px" height="500px"> <br />
+        <input type="button" value="사과" class="box" id="apple" onclick="changeImage('./apple.jpg')">
+        <input type="button" value="바나나" class="box" id="banana" onclick="changeImage('./banana.jpg')">
+        <input type="button" value="포도" class="box" id="grape" onclick="changeImage('./grape.jpg')">
+        <input type="button" value="복숭아" class="box" id="peach" onclick="changeImage('./peach.jpg')">
+    </form>
+
+    <script>
+        function changeImage(imageSrc){
+            $("#fruitImg").attr('src', imageSrc);
+        }
+    </script>
+</body>
+</html>

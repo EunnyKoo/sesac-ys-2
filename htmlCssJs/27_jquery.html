@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 배우기</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: 600px;
+            height: 400px;
+            background-color: beige;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box red" id="red"></div>
+        <div class="box orange"></div>
+        <div class="box yellow"></div>
+    </div>
+
+    <input type="text" name="name" id="input" />
+    <button type="button" onclick="useVal()">val() 사용하기</button> <br />
+    <button type="button" onclick="useAttr()">attr() 사용하기</button> <br />
+    <button type="button" onclick="useAppend()">Append() 사용하기</button> <br />
+    <button type="button" onclick="useRemove()">remove() 사용하기</button> <br />
+
+    <span id="span1">hello</span>
+    <button type="button" onclick="useCss()">css() 사용하기</button>
+    <button type="button" onclick="useText()">Text() 사용하기</button>
+    <button type="button" onclick="controlClass()">controlClass() 사용하기</button>
+    
+
+    <script>
+        // $("선택자").동작함수();
+        // document.get~~~ / document.querySelector~~~
+        // .innerHTML / append()
+
+        function useVal(){
+            //id가 input인 태그를 선택하여, 그 input의 value를 가져오는 코드
+            const value = $("#input").val();
+            //const value = document.getElementById("input").value;
+            console.log(value);
+
+            //id가 input인 태그를 선택하여, 그 input의 value를 선택하는 코드
+            $("#input").val("설정하고 싶은 값");
+            //document.getElementById("input").value = "설정하고 싶은 값";
+        }    
+        
+        function useCss(){
+            // .css(): style을 변경
+            $("#span1").css("font-size","30px");
+            $("#span1").css("color","blue");
+
+            // js코드로 한다면?
+            // const span = document.getElementById("span1");
+            // span.style = "font-size: 30px; color: blue;"
+        }
+
+        function useAttr(){
+            $("#input").val("");
+            $("#input").attr("placeholder", "이름을 입력하세요.");
+            //setAttributes()
+        }
+
+        function useText(){
+            $("#span1").text("hello chuseok");
+            $("#span1").html("<b>hello chuseokkkkkk</b>");
+        }
+
+        //자주쓰임!
+        function useAppend(){
+            $(".container").append(`<div class="box yellow"></div>`)
+
+            //첫번째 자식으로 추가
+            $(".container").prepend(`<div class="box yellow"></div>`)
+        }
+
+        //자주쓰임!
+        function useRemove(){
+            $(".box.orange").remove();
+
+            //const container = document.querySelector(".box.orange");
+            //container.innerHTML = "";
+            $(".box.orange").empty();
+        }
+        
+        function useParent(){
+            //parent()
+            console.log("parent",$(".box.red").parent());
+            //parents()
+            console.log("parents",$(".box.red").parents());
+            //next()
+            console.log("next",$(".box.red").next());
+            //prev()
+            console.log("prev",$(".box.red").prev());
+            //children()
+            console.log("children",$(".container").children());
+        }
+
+        useParent();
+
+        //자주쓰임! 
+        function controlClass(){  
+            const redBox = $("#red");
+            if(redBox.hasClass("red"))  redBox.removeClass("red");
+            else redBox.addClass("red");
+
+            //한줄로 토글로 할 수 있음 : redBox.toggleClass("red");
+        }
+
+    </script>
+</body>
+</html>

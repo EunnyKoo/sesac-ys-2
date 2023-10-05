@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>방명록입니다.</div>
+    <div>
+        <div>작성자: <input type="text" name="name"/></div>
+        <div>내용: <input type="text" name="content"/></div>
+        <button type="button" onclick="addRow2()">작성</button>
+    </div>
+
+    <table border="1" cellspacing="5">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+        let num = 1;
+        function addRow(){
+            
+            //input 두 개의 값을 가져온다.
+            const name = document.querySelector("[name=name]").value;
+            const content = document.querySelector("[name=content]").value;
+            
+            //번호, 작성일
+            //tbody의 children 개수 -> tbody 선택 -> tbody.children.length
+            const date = new Date();
+            const dateString = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+            
+            //tr태그를 만든다.
+            const tr = document.createElement("tr");
+
+            //td태그 4개를 만든다.
+            const td1 = document.createElement("td");
+            td1.innerText = num;
+            const td2 = document.createElement("td");
+            td2.innerText = name;
+            const td3 = document.createElement("td");
+            td3.innerText = content;
+            const td4 = document.createElement("td");
+            td4.innerText = dateString;
+
+            //td태그 4개를 tr태그 자식요소로 추가한다.
+            tr.append(td1);
+            tr.append(td2);
+            tr.append(td3);
+            tr.append(td4);
+
+            //tbody태그의 자식요소로 tr태그를 추가한다.
+            const tbody = document.querySelector("tbody");
+            tbody.append(tr);
+
+            num++;
+        }
+
+        function addRow2(){
+             //input 두 개의 값을 가져온다.
+             const name = document.querySelector("[name=name]").value;
+            const content = document.querySelector("[name=content]").value;
+            
+            //번호, 작성일
+            //tbody의 children 개수 -> tbody 선택 -> tbody.children.length
+            const date = new Date();
+            const dateString = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+            
+            //tr태그를 만든다.
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${num}<td/> <td>${name}<td/> <td>${content}<td/> <td>${dateString}<td/>`;
+
+            const tbody = document.querySelector("tbody");
+            tbody.append(tr);
+
+            num++;    
+        }
+    </script>
+</body>
+</html>
