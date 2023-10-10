@@ -1,0 +1,53 @@
+.container{
+    width: 500px;
+    height: 500px;
+    background-color: bisque;
+    display: flex;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+}
+
+.pink{
+    background-color: pink;
+}
+
+.gold{
+    background-color: gold;
+}
+
+.silver{
+    background-color: silver;
+}
+
+@media screen and (max-width: 700px){
+    .container{
+        display: block;
+    }
+}
+
+/* @media 미디어유형 and (크기 규칙) 
+
+@media print {
+    .container{
+        background-color: aquamarine;
+    }
+} 
+
+@media screen and (min-width: 700px) {
+    .container{
+        background-color: aquamarine;
+    }
+
+    이하면 기본 컨테이너 css값을 적용하겠죠?
+}
+
+@media screen and (max-width: 700px) {
+    .silver{
+        background-color: blueviolet;
+    }
+}
+*/
+
