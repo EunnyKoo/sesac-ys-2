@@ -47,3 +47,23 @@ const word1 = "abc";
 const word2 = "xyz";
 const word3 = [...word1, ...word2];
 console.log(word3);
+
+const obj2 = {
+    name: "eun",
+    gender: "female",
+    age: 28
+};
+const obj3 = {
+    ...obj2, 
+    test: "test",
+};
+console.log(obj3);
+
+//rest 파라미터 
+const values = [10,20,30];
+function get(a, ...rest){
+    console.log(a); //결과는 10
+    console.log(rest); //결과는 [ 20, 30 ]
+}
+
+get(...values);
