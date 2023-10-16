@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스케줄 달력 실습</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <form id="schedule-form">
+        날짜: <input type="text" name="date" id="date"> <br />
+        내용: <input type="text" name="contents" id="contents"> <br /> <br />
+        <button type="button" >작성</button>
+    </form>
+
+    <h1 style="color: green;"></h1>
+    <table border="1" width="70%">
+        <thead>
+            <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script type="text/javascript">
+        $(function(){
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var start = new Date(year,month,1);
+            var day = start.getDay();
+            var last = new Date(year, (month+1), 0);  //그 달의 마지막 날 알려줌
+            var lastDate = last.getDate();
+            
+            $("h1").html(year+"년 "+(month+1)+"월 ");
+            
+            var str = "<tr>";
+            for(j=1; j<=day; j++){
+                str += "<td>&nbsp</td>"
+            };
+            
+            for(i=1; i<=lastDate; i++){
+                str += "<td>"+i+"</td>";
+                if((i+day)%7 ==0){
+                    str += "</tr><tr>"
+                }
+            }
+            str +="</tr>"
+            $("tbody").html(str);
+
+            let date;
+
+            $("td").on("click", function(){
+                console.log(this);
+                $("#date").val(this.innerText); 
+                date = this;  // 키포인트!
+            });
+
+            $("button").on("click", function(){
+                let contents = $("#contents").val();
+                $(date).append(`<br/>`+contents);
+            });
+            
+        });
+
+
+    </script>
+</body>
+</html>
