@@ -33,13 +33,17 @@
             }, 1000);
         });
     }
-
+    
     async function rainbow() {
-        const colors = ["red", "orange", "yellow", "green", "blue"];
-        for (const color of colors) {
-            await changeBackgroundColor(color);
-        }
+    const colors = ["red", "orange", "yellow", "green", "blue"];
+    let index = 0;
+
+    while (true) {
+        await changeBackgroundColor(colors[index]);
+        index = (index + 1) % colors.length;
     }
+}
+
     rainbow();
     
 </script>
