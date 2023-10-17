@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/infoResult" method="post" target="_blank" name="register">
+        이름 <input type="text" name="name">
+
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="male" id="male"> <label for="male">남자</label>
+            <input type="radio" name="gender" value="female" id="female"> <label for="female">여자</label> <br />
+        </fieldset>
+
+        <br />
+
+        <fieldset>
+            <legend>생년월일</legend> <br />
+            <select name="year">
+                <% for(let i = 1930; i<=2023; i++){ %>
+                <option><%= i %></option>
+                <% } %>년
+            </select>
+            <select name="month">
+                <% for(let i = 1; i<=12; i++){ %>
+                <option><%= i %></option>
+                <% } %>월
+            </select>
+            <select name="date">
+                <% for(let i = 1; i<=31; i++){ %>
+                <option><%= i %></option>
+                <% } %>일
+            </select>
+        </fieldset>
+
+        <br />
+
+        <fieldset>
+            <legend>관심사</legend> <br />
+            <input type="checkbox" name="year">여행
+            <input type="checkbox" name="month">패션
+            <input type="checkbox" name="day">음식
+        </fieldset>
+
+        <br />
+
+        <fieldset>
+            <legend>선택</legend> <br />
+            좋아하는 색상 <input type="color" name="color"> <br />
+            좋아하는 숫자 <input type="number" name="num">
+        </fieldset>
+
+        <br />
+
+        <input type="submit" value="회원가입">
+   </form>
+</body>
+</html>

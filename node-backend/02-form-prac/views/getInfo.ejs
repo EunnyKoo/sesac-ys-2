@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/getInfo" method="get" target="_blank" name="register">
+        이름 <input type="text" name="name" required minlength="2"/>
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="male" id="male"> <label for="male">남자</label>
+            <input type radio" name="gender" value="female" id="female"> <label for "female">여자</label> <br />
+        </fieldset>
+
+        <fieldset>
+            <legend>생년월일</legend> <br />
+            <select name="year" id="year">
+                <!-- Options for years will be dynamically generated using JavaScript -->
+            </select>
+            <select name="month" id="month">
+                <% for(let i = 1; i<=12; i++){ %>
+                <option><%= i %></option>
+                <% } %>
+            </select>
+            <select name="date" id="date">
+                <!-- Options for dates will be dynamically generated using JavaScript -->
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>관심사</legend> <br />
+            <input type="checkbox" name="interest" value="travel">여행<label for="travel">여행</label>
+            <input type="checkbox" name="interest" value="fashion">패션<label for="fashion">패션</label>
+            <input type="checkbox" name="interest" value="food">음식<label for="food">음식</label>
+        </fieldset>
+        
+        <br />
+
+        <input type="submit" value="회원가입">
+    </form>
+
+    <script>
+        // JavaScript to dynamically populate the date select options based on the selected month
+        const yearSelect = document.getElementById("year");
+        const monthSelect = document.getElementById("month");
+        const dateSelect = document.getElementById("date");
+        
+        // Populate the year select options from 1930 to 2023
+        for (let i = 1930; i <= 2023; i++) {
+            const option = document.createElement("option");
+            option.textContent = i;
+            yearSelect.appendChild(option);
+        }
+
+        monthSelect.addEventListener("change", updateDateOptions);
+        yearSelect.addEventListener("change", updateDateOptions);
+        
+        function updateDateOptions() {
+            const selectedYear = parseInt(yearSelect.value, 10);
+            const selectedMonth = parseInt(monthSelect.value, 10);
+            const maxDate = new Date(selectedYear, selectedMonth, 0).getDate();
+            dateSelect.innerHTML = "";
+            
+            for (let i = 1; i <= maxDate; i++) {
+                const option = document.createElement("option");
+                option.textContent = i;
+                dateSelect.appendChild(option);
+            }
+        }
+    </script>
+</body>
+</html>

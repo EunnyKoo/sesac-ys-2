@@ -50,8 +50,17 @@ function pay(product, price){
     console.log(`상품명:${product}, 가격:${price}`);
 }
 
-goMart();
-pickDrink().then(()=>{
+async function exec() {
+    goMart();
+    await pickDrink();
     pay(product, price);
-});
+}
 
+exec();
+
+/*
+goMart();
+    pickDrink().then(()=>{
+        pay(product, price);
+    });
+*/
