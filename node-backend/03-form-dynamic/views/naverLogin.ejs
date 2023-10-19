@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naver Login 화면 Axios Post로 연습하기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .login-form .input-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form .input-group input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0070c3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #005196;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form class="login-form" name="login">
+            <div class="input-group">
+                <input type="text" class="id" name="id" placeholder="아이디 입력" />
+            </div>
+            <div class="input-group">
+                <input type="password" class="pw" name="pw" placeholder="비밀번호 입력" />
+            </div>
+            <button type="button" onclick="axiosLoginPost()">로그인</button>
+        </form>
+    </div>
+    <h3 id="result"></h3>
+    
+      <script>
+        function getData() {
+        const form = document.forms["login"];
+
+        const data = {
+            id : form.id.value,
+            pw: form.pw.value,
+        }
+
+        return data;
+      }
+
+      function axiosLoginPost() {
+        const data = getData();
+
+        // axios 함수는 promise 객체를 return
+        axios({
+          method: "POST",
+          url: "/login3",
+          data: data // get 요청으로 데이터 보낼 때 params 사용
+          // params 대신 url에 query를 직접 작성해도 됨
+        }).then((res)=> {
+            $("#result").html(`로그인 성공, ${id}님 환영합니다.`)
+        })
+      }
+      </script>
+</body>
+</html>
