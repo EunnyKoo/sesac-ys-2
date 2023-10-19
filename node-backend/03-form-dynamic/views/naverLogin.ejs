@@ -73,31 +73,36 @@
     </div>
     <h3 id="result"></h3>
     
-      <script>
+    <script>
         function getData() {
-        const form = document.forms["login"];
+            const form = document.forms["login"];
 
-        const data = {
-            id : form.id.value,
-            pw: form.pw.value,
+            const data = {
+                id: form.id.value,
+                pw: form.pw.value,
+            }
+
+            return data;
         }
 
-        return data;
-      }
+        function axiosLoginPost() {
+            const data = getData();
 
-      function axiosLoginPost() {
-        const data = getData();
+            axios({
+                method: "POST",
+                url: "/login3",
+                data: data
+            })
+            
+            console.log("res", res);
+            console.log("res.data", res.data);
 
-        // axios 함수는 promise 객체를 return
-        axios({
-          method: "POST",
-          url: "/login3",
-          data: data // get 요청으로 데이터 보낼 때 params 사용
-          // params 대신 url에 query를 직접 작성해도 됨
-        }).then((res)=> {
-            $("#result").html(`로그인 성공, ${id}님 환영합니다.`)
-        })
-      }
-      </script>
+            if(res.data == "success"){
+                $("#result").html("로그인 성공");
+            }else{
+                $("#result").html("로그인 실패");
+            }
+        }
+    </script>
 </body>
 </html>

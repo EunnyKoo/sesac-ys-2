@@ -58,14 +58,8 @@ app.post("/login3", function (req, res) {
   const serverPW = "55555";
   
   if (clientID === serverID && clientPW === serverPW) {
-    response.success = true;
-    response.message = "로그인 성공: 환영합니다!";
-  }else {
-    response.message = "로그인 실패, 다시 입력하세요!"
-  }
-
-    // 응답 객체를 JSON 형태로 클라이언트에 보냅니다.
-    res.json(response);
+   res.send("success");
+  }else res.send("failed");
   });
 
 app.listen(PORT, function () {
