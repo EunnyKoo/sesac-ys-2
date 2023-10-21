@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>My Info Multer Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-form  {
+            background-color: #fff;
+            align-items: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .login-form .input-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form .input-group input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .login-form button {
+            width: 50%;
+            padding: 10px;
+            background-color: #0070c3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="login-form" name="myInfoUpload1">
+            <div class="input-group">
+                <input type="text" class="id" name="id" placeholder="아이디 입력" />
+            </div>
+            <div class="input-group">
+                <input type="password" class="pw" name="pw" placeholder="비밀번호 입력" />
+            </div>
+            <div class="input-group">
+                <input type="text" class="name" name="name" placeholder="이름 입력" />
+            </div>
+            <div class="input-group">
+                <input type="text" class="age" name="age" placeholder="나이 입력" />
+            </div>
+            <input type="file" name="userfile" /> <br /> <br />
+            <button type="button" onclick="myInfoUpload()">확인</button>
+        </form>
+        <br /> <br />
+            <div id="myinfo_result"></div>
+    </div>
+
+    <script>
+        function myInfoUpload(){
+            const form = document.forms["myInfoUpload1"];
+            const formData = new FormData();
+            formData.append("id", form.id.value);
+            formData.append("pw", form.pw.value);
+            formData.append("name", form.name.value);
+            formData.append("age", form.age.value);
+            formData.append("userfile", form.userfile.files[0]);
+            console.log("formData는:",formData);
+            axios({
+                method: "post",
+                url: "/myinfo/result",
+                data: formData,
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }).then((res) => {
+                const result = document.getElementById("myinfo_result");
+                result.innerHTML = `<img src="${res.data.src}" width=150px /> <br />
+                                    <h3>아이디: ${res.data.id}</h3>
+                                    <h3>이름: ${res.data.name}</h3>
+                                    <h3>나이: ${res.data.age}</h3>`
+            })
+        }
+    </script>
+</body>
+</html>
