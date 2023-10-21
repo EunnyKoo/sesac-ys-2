@@ -51,16 +51,23 @@ app.get("/naver/login", function(req,res) {
 
 app.post("/login3", function (req, res) {
   // 클라이언트에서 전송한 ID와 비밀번호를 요청에서 가져옵니다.
-  const clientID = req.body.id;
-  const clientPW = req.body.pw;
-
-  const serverID = "koo";
-  const serverPW = "55555";
-  
-  if (clientID === serverID && clientPW === serverPW) {
-   res.send("success");
-  }else res.send("failed");
-  });
+  const id = "koo";
+  const pw = "55555";
+  let data;
+  if(req.body.id == id && req.body.pw == pw) {
+    data = {
+      isSuccess: true,
+      msg: "로그인 성공!"
+    }
+  }else {
+    data = {
+      isSuccess: false,
+      msg: "로그인 실패ㅠㅠ"
+    }
+  }
+    //console.log(req.body);
+    res.send(data);
+});
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
