@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 화면</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 아래 cdn은 axios 사용을 위한 것 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      input[type="text"] {
+        width: 90%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 90%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="form-login">
+      <h2>로그인</h2>
+      <input type="text" name="userid" placeholder="아이디" required />
+      <input type="text" name="pw" placeholder="비밀번호" required />
+      <button type="button" onclick="checkAccount()">가입하기</button>
+    </form>
+
+    <script>
+      function checkAccount() {
+        const form = document.forms["form-login"];
+        const data = {
+          name: form.name.value,
+          userid: form.userid.value,
+          pw: form.pw.value
+        }
+
+        axios({
+          method: "POST",
+          url: "/login",
+          data: data
+        }).then((res) => {
+          const { name, userid, pw } = res.data;
+          $("body").append(`<a href="/mypage">마이페이지 바로가기</a>`);
+          form.userid.value = "";
+          form.pw.value = "";
+        });
+      }
+    </script>
+  </body>
+</html>
