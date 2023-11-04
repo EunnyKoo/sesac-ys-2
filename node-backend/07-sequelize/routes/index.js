@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controller/CVisitor");
+const controller = require("../controller/Cvisitor");
 
-//임시 라우터
+// 임시 라우터
 router.get("/visitor/test/:id", controller.getTest);
 
 // ~~~~~:8000 -> index.ejs render
@@ -19,10 +19,7 @@ router.patch("/visitor", controller.patchVisitor);
 
 // 방명록 하나 조회
 router.get("/visitor/:id", controller.getVisitorById);
-
 // 방명록 삭제
 router.delete("/visitor/:id", controller.deleteVisitor);
-
-
 
 module.exports = router;
