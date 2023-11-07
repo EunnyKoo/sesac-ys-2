@@ -7,4 +7,4 @@ SeSAC 강의 코드 관리
 - git branch test(ex. login UI 완료)
 - git branch test(ex. 로그인 api)
 
-- git branch test3 (수정)
+- git branch test5
