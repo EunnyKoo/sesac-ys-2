@@ -1,56 +1,106 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 function ListMap() {
-  const productList = [
-    { id: 1, product: "가방" },
-    { id: 2, product: "패딩" },
-    { id: 3, product: "신발" },
-    { id: 4, product: "상의" },
-    { id: 5, product: "하의" },
+  const peopleList = [
+    { id: "1", name: "구구콘", content: "신나는 토요일" },
   ];
-  const [list, setList] = useState(productList);
-  const [newProduct, setNewProduct] = useState("");
+  const [list, setList] = useState(peopleList);
+  const [newName, setNewName] = useState("");
+  const [newContent, setNewContent] = useState("");
 
-  const addProduct = () => {
-    const newObj = { id: list[list.length-1].id + 1, product: newProduct };
-    const newList = list.concat(newObj);
-    setList(newList);
-    setNewProduct("");
+  const input1 = useRef();
+  const input2 = useRef();
+
+  const addPerson = () => {
+    if(input1.current.value === ""){
+      input1.current.focus();
+    }else if(input2.current.value === ""){
+      input2.current.focus();
+    }else {
+      const newPerson = { id: list.length+1, name: newName, content: newContent }; 
+      const newList = list.concat(newPerson);
+      setList(newList); 
+    }
   };
 
-  const delProduct = (id) => {
-    //더블클릭한 상품에 대해서 삭제를 해야함
-    //filter 메소드는 앞에 있는 배열에 대해서 반복
-    //filter 메소드의 return 값은 조건이 되어야 함.
-    //조건이 true일 경우, 해당 원소는 새로운 배열에 포함.
-    //조건이 false일 경우, 해당 원소는 새로운 배열에 포함하지 않음 
+  const handleOnKeyPress = e => {
+    if (e.key === 'Enter') {
+        addPerson(); 
+    }
+  };
+
+  const delPerson = (id) => {
     const newList = list.filter((value) => {
-      return value.id !== id; 
+        return value.id !== id;
     });
     setList(newList);
-  };
+  }
 
   return (
     <>
-      <label>추가할 상품: </label>
+        작성자:&nbsp; 
       <input
+        ref={input1}
+        placeholder="이름"
         type="text"
-        value={newProduct}
+        value={newName}
         onChange={(e) => {
-          setNewProduct(e.target.value);
+          setNewName(e.target.value);
         }}
       />
-      <button onClick={addProduct}>추가</button>
-      <ul>
-        {list.map((value) => {
-          return (
-            <li style={{cursor: "pointer"}}
-             key={value.id} onDoubleClick={() => delProduct(value.id)}>
-              {value.product}
-            </li>
-          );
-        })}
-      </ul>
+      &nbsp; &nbsp;제목:&nbsp; 
+      <input
+        ref={input2}
+        placeholder=""
+        type="text"
+        value={newContent}
+        onChange={(e) => {
+          setNewContent(e.target.value);
+        }}
+        onKeyPress={handleOnKeyPress}
+      />
+      &nbsp;
+      <button onClick={addPerson}>작성</button> 
+      <br /><br/>
+
+        <select >
+            <option >작성자</option >
+            <option >제목</option >
+        </select >
+        &nbsp; 
+        <input 
+        placeholder="검색어"
+        type="text"
+        value2={newContent}
+        onChange={(e) => {
+            setNewContent(e.target.value2);
+        }}/>
+
+        &nbsp; 
+        <button>검색</button>
+        <button>전체</button>
+        
+        <br/>
+        <br/>
+        <div>새로운 글</div>
+        <table border={1} style={{cursor: "pointer"}}>
+            <tr>
+                <th>번호</th>
+                <th>작성자</th>
+                <th>제목</th>
+            </tr>
+        {list.map((value) => (
+            <tr key={value.id}  onDoubleClick={() => delPerson(value.id)}>
+                <td>{`${value.id}`}</td>
+                <td>{`${value.name}`}</td>
+                <td>{`${value.content}`}</td>
+            </tr>
+        ))}
+        </table>
+
+        <hr />
+
+        
     </>
   );
 }
