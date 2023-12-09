@@ -1,0 +1,71 @@
+$color-main: red;
+
+.scss-parents {
+    color: $color-main;
+    // width: 100% - 200;
+    // background-color: pink;
+}
+
+.scss-parents {
+    ul{
+        background-color: black;
+        color: white;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+//style 코드 블록을 함수처럼 하나로 묶어두고, 사용할 때는 include를 이용
+@mixin box-width($size) {
+    width: $size;
+    height: $size;
+}
+
+.box1 {
+    @include box-width(300px);
+    background-color: pink;
+}
+
+.box2 {
+    @include box-width(200px);
+    background-color: blueviolet;
+}
+
+//네모네모
+.origin-sass{
+    display: flex;
+    .box {
+        @include box-width(100px);
+        &.red{
+            background-color: red;
+        }
+        &.orange{
+            background-color: orange;
+        }
+        &.yellow{
+            background-color: yellow;
+        }
+        &.blue{
+            background-color: blue;
+        }
+        &.purple{
+            background-color: purple;
+        }
+        &.green{
+            background-color: green;
+        }
+    }
+}
+
+.btn {
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-primary {
+    @extend .btn;
+    background-color: steelblue;
+}
