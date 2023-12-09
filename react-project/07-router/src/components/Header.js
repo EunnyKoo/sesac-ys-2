@@ -13,6 +13,9 @@ export default function Header(){
                 <div>
                 <Link to="/products">Product🎈</Link>
                 </div>
+                <div>
+                <Link to="/photos">Photos 📸</Link>
+                </div>
             </nav>
         </header>
     </>
