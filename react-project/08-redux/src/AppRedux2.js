@@ -1,11 +1,53 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease } from "./store/counterReducer";
+import React, { useState } from "react";
 import "./App.css";
+
 
 function AppRedux2() {
   return (
     <div>
-      <Box1 />
+      <Bank />
+    </div>
+  );
+}
+
+function Bank() {
+  const number = useSelector((state) => state.counter.number);
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState(0);
+
+  const handleInputChange = (event) => {
+    setInputValue(parseInt(event.target.value, 10)); 
+  };
+
+  const handleDeposit = () => {
+    if (inputValue > 0) {
+      dispatch(increase(inputValue));
+    }
+  };
+
+  const handleWithdraw = () => {
+    if (inputValue > 0) {
+      dispatch(decrease(inputValue));
+    }
+  };
+
+  return (
+    <div className="bank">
+      <h2 className="codingBank">코딩온 은행</h2>
+      <h3 className="change">잔액: {number}</h3>
+      <div className="inputButton">
+        <input
+          type="number"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="입금 또는 출금 금액 입력"
+          className="inputNo"
+        />
+        <button onClick={handleDeposit} className="btn_deposit">입금</button>
+        <button onClick={handleWithdraw} className="btn_withdraw">출금</button>
+      </div>
     </div>
   );
 }

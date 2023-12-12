@@ -1,3 +1,4 @@
+/*
 const INCREMENT = 'counter/INCREMENT'
 const DECREMENT = 'counter/DECREMENT'
 
@@ -7,7 +8,7 @@ const DECREMENT = 'counter/DECREMENT'
 export const increase = () => ({type: INCREMENT});
 export const decrease = () => ({type: DECREMENT});
 
-const initialValue = {number: 100};
+const initialValue = {number: 1000};
 
 const counterReducer = (state=initialValue, action) => {
   switch(action.type) {
@@ -17,6 +18,29 @@ const counterReducer = (state=initialValue, action) => {
     case 'DECREMENT':
     case DECREMENT :
       return {number: state.number - 1};
+    default:
+      return state;
+  }
+};
+
+export default counterReducer;
+*/
+
+
+const INCREMENT = 'counter/INCREMENT';
+const DECREMENT = 'counter/DECREMENT';
+
+export const increase = (amount) => ({ type: INCREMENT, payload: amount });
+export const decrease = (amount) => ({ type: DECREMENT, payload: amount });
+
+const initialValue = { number: 1000 };
+
+const counterReducer = (state = initialValue, action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return { number: state.number + action.payload };
+    case DECREMENT:
+      return { number: state.number - action.payload };
     default:
       return state;
   }
