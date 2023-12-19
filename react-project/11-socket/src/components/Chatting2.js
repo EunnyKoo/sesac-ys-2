@@ -19,7 +19,7 @@ export default function Chatting2() {
     },
     {
       type: "notice",
-      content: "~~~~~~님이 입장하셨습니다.",
+      content: "",
     },
   ]);
   const [userId, setUserId] = useState(null);
@@ -54,16 +54,18 @@ export default function Chatting2() {
   };
   return (
     <>
-      <h3>실습 3-1, 3-2, 3-3번</h3>
-      <ul>
-        <li>닉네임 입력받고 입장 시키기</li>
-        <li>닉네임 중복 방지</li>
-        <li>퇴장 시키기</li>
-      </ul>
+      <div className="section-header">
+        <h3>크리스마스 채팅룸</h3>
+        <ul>
+          <li>🎅 닉네임 입력 후 입장하기</li>
+          <li>🎄 닉네임 중복 방지</li>
+          <li>❄️ 퇴장 시키기</li>
+        </ul>
+      </div>
 
       {userId ? (
         <>
-          <div>{userId}님 환영합니다.</div>
+          <div className="welcome-message">{userId}님 환영합니다.</div>
           <div className="chat-container">
             {chatList.map((chat, i) => {
               if (chat.type === "notice") return <Notice key={i} chat={chat} />;
