@@ -1,11 +1,11 @@
 
 import './App.css';
-import Chatting2 from './components/Chatting2';
+import Chatting3 from './components/Chatting3';
 
 function App() {
   return (
     <div >
-      <Chatting2 />
+      <Chatting3 />
     </div>
   );
 }
